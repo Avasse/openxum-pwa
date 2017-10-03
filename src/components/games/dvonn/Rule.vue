@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout>
-      <v-flex xl4 lg6 md8 sm10 xs12 offset-xl4 offset-lg3>
+      <v-flex xl4 lg6 md8 sm10 xs12 offset-xl4 offset-lg3 offset-md2 offset-sm1>
         <v-card>
           <v-card-title primary-title>
             <div>
@@ -152,5 +152,14 @@
     font-weight: bold;
     font-size: medium;
     margin: 0;
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+
+  li {
+    display: list-item;
   }
 </style>
