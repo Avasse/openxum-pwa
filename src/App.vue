@@ -1,93 +1,38 @@
 <template>
-  <v-app light>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      enable-resize-watcher
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-tile-action>
-            <v-icon light v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+  <v-app>
     <v-toolbar fixed>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
-      <v-btn
-        icon
-        light
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
+      <v-toolbar-items class="hidden-md-and-up">
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+      </v-toolbar-items>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        light
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat to="/games">Games</v-btn>
+        <v-btn flat>Ranking</v-btn>
+        <v-btn flat>FAQ</v-btn>
+        <v-btn flat>Sign up</v-btn>
+      </v-toolbar-items>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-menu :nudge-width="100">
+          <v-btn flat slot="activator">
+            Languages
+            <v-icon>arrow_drop_down</v-icon>
+          </v-btn>
+          <v-list>
+            <v-list-tile v-for="item in items" :key="item" @click="">
+              <v-list-tile-title v-text="item"></v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+        <v-btn flat>Sign in</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <main>
-      <v-container fluid>
-        <v-slide-y-transition mode="out-in">
-          <v-layout column align-center>
-            <img src="/static/img/v.png" alt="Vuetify.js" class="mb-5">
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout>
-        </v-slide-y-transition>
-      </v-container>
+      <router-view></router-view>
     </main>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer :fixed="fixed">
-      <span>&copy; 2017</span>
+      <span>&copy; 2014-2017 OpenXum</span>
     </v-footer>
   </v-app>
 </template>
@@ -96,16 +41,11 @@
   export default {
     data () {
       return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
+        fixed: true,
         items: [
-          { icon: 'bubble_chart', title: 'Inspire' }
+          'English', 'French'
         ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'OpenXum'
       }
     }
   }
