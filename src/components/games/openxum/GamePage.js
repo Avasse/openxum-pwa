@@ -30,32 +30,6 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
     gui = new namespace.Gui(color, engine, game_id === '-1', game_type == 'gui');
   };
 
-  var build_move_list_modal = function () {
-    var modal = $('<div/>', {
-      class: 'modal fade',
-      id: 'moveListModal',
-      tabindex: '-1',
-      role: 'dialog',
-      'aria-labelledby': 'moveListModal',
-      'aria-hidden': 'true'
-    });
-    var modalDialog = $('<div/>', {class: 'modal-dialog'});
-    var modalContent = $('<div/>', {class: 'modal-content'});
-    var modalHeader = $('<div/>', {class: 'modal-header'});
-    var button = $('<button/>', {class: 'close', 'data-dismiss': 'modal'});
-    var modalBody = $('<div/>', {class: 'modal-body', id: 'moveListBody'});
-
-    $('<span/>', {'aria-hidden': true, html: '&times;'}).appendTo(button);
-    $('<span/>', {class: 'sr-only', html: 'Close'}).appendTo(button);
-    button.appendTo(modalHeader);
-    $('<h4/>', {class: 'modal-title', id: 'moveListModalLabel', html: 'Move list'}).appendTo(modalHeader);
-    modalHeader.appendTo(modalContent);
-    modalBody.appendTo(modalContent);
-    modalContent.appendTo(modalDialog);
-    modalDialog.appendTo(modal);
-    modal.appendTo($('#main'));
-  };
-
   var build_opponent = function (namespace, color, game_type, game_id, opponent_color, username, owner_id, opponent_id) {
     if (game_type === 'remote_ai') {
       opponent = new namespace.RestWebServicePlayer(opponent_color, engine, username);
@@ -137,8 +111,7 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
   };
 
   var init = function (namespace, name, first_color, color, opponent_color, game_type, game_id, mode, username, owner_id, opponent_id, replay) {
-/*    build_winner_modal();
-    build_move_list_modal(); */
+/*    build_winner_modal(); */
 
 /*    $('#winnerModal .new-game-button').click(function () {
       $('#winnerModal').modal('hide');
