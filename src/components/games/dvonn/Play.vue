@@ -4,11 +4,24 @@
       <v-flex xl4 lg6 md8 sm10 xs12 offset-xl4 offset-lg3 offset-md2 offset-sm1 offset-xs0>
         <v-btn success light id="status">Ready!</v-btn>
         <v-btn warning light id="replay">Replay</v-btn>
-        <v-btn error light id="list">Move list</v-btn>
+        <v-btn error light id="list" v-on:click.native="displayMoveList()">Move list</v-btn>
         <div id="boardDiv">
           <canvas id="board"/>
         </div>
       </v-flex>
+    </v-layout>
+    <v-layout row justify-center>
+      <v-dialog v-model="dialog" persistent>
+        <v-btn primary dark slot="activator">Open Dialog</v-btn>
+        <v-card>
+          <v-card-title class="headline">Move list</v-card-title>
+          <v-card-text id="moveListBody"></v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn class="green--text darken-1" flat="flat" @click.native="dialog = false">OK</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-layout>
   </v-container>
 </template>

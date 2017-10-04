@@ -1,7 +1,7 @@
 "use strict";
 
 import { Manager as OpenXumManager } from '../../openxum/Manager'
-import { Color } from './Engine'
+import { Color, Move } from './Engine'
 
 var Manager = function (e, g, o, s) {
 // private attributes

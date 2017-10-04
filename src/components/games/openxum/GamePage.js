@@ -169,25 +169,15 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
       set_gui();
       set_opponent(game_id);
       manager.replay(moves, true);
-    });
-    $("#list").click(function () {
-      var body = $('#moveListBody');
-      var moves = manager.get_moves();
-      var list = $('<ol>');
-
-      body.empty();
-      moves.split(";").forEach(function (str) {
-        if (str !== '') {
-          var item = $('<li>');
-          var move = manager.build_move();
-
-          move.parse(str);
-          item.html(move.to_string());
-          item.appendTo(list);
-        }
-      });
-      list.appendTo(body);
     }); */
+  };
+
+  this.get_moves = function () {
+    return manager.get_moves();
+  };
+
+  this.build_move = function () {
+    return manager.build_move();
   };
 
   init(namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r);
