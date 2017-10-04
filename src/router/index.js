@@ -4,6 +4,7 @@ import Main from '@/components/Main'
 import Games from '@/components/Games'
 
 import DvonnRule from '@/components/games/dvonn/Rule'
+import DvonnPlay from '@/components/games/dvonn/Play'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/games/rule/dvonn',
       name: 'DvonnRule',
       component: DvonnRule
+    },
+    {
+      path: '/games/play/dvonn',
+      name: 'DvonnPlay',
+      component: DvonnPlay
     }
   ]
 })

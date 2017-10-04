@@ -10,6 +10,9 @@
             <v-flex xs12>
               <img :src="games[i].logo" style="max-width: 200px"></img>
             </v-flex>
+            <v-flex xs12>
+              <v-btn :to="games[i].url2" light>Play</v-btn>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
@@ -23,7 +26,7 @@
     data () {
       return {
         games: [
-          {name: 'Dvonn', logo: require('../assets/dvonn.jpg'), url: '/games/rule/dvonn'},
+          {name: 'Dvonn', logo: require('../assets/dvonn.jpg'), url: '/games/rule/dvonn', url2: '/games/play/dvonn'},
           {name: 'Gipf', logo: require('../assets/gipf.jpg'), url: '/games/rule/gipf'},
           {name: 'Invers', logo: require('../assets/invers.jpg'), url: '/games/rule/invers'},
           {name: 'Kamisado', logo: require('../assets/kamisado.jpg'), url: '/games/rule/kamisado'},
