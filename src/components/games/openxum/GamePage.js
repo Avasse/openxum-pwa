@@ -15,32 +15,6 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
   var generated_board = null;
 
 // private methods
-  var build_buttons = function () {
-    var row = $('<div/>', {class: 'row'});
-    var col = $('<div/>', {class: 'col-md-6 col-md-offset-3'});
-
-    $('<a/>', {class: 'btn btn-success btn-md active', id: 'status', href: '#', html: 'Ready!'}).appendTo(col);
-    $('<a/>', {class: 'btn btn-warning btn-md active', id: 'replay', href: '#', html: 'Replay'}).appendTo(col);
-    $('<a/>', {
-      class: 'btn btn-danger btn-md active', id: 'list', href: '#', html: 'Move list',
-      'data-toggle': 'modal', 'data-target': '#moveListModal'
-    }).appendTo(col);
-    col.appendTo(row);
-    row.appendTo($('#main'));
-  };
-
-  var build_canvas = function () {
-    var row = $('<div/>', {class: 'row'});
-    var col = $('<div>', {class: 'col-md-12', id: 'boardDiv'});
-
-    $('<canvas/>', {
-      id: 'board',
-      style: 'width: 600px; height: 600px; padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; border-radius: 15px; -moz-border-radius: 15px; box-shadow: 8px 8px 2px #aaa;'
-    }).appendTo(col);
-    col.appendTo(row);
-    row.appendTo($('#main'));
-  };
-
   var build_engine = function (namespace, mode, color, name, game_type, color_player) {
     if (name == 'paletto') {
       if (generated_board == null) {
@@ -164,16 +138,14 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
 
   var init = function (namespace, name, first_color, color, opponent_color, game_type, game_id, mode, username, owner_id, opponent_id, replay) {
 /*    build_winner_modal();
-    build_move_list_modal();
-    $('<br/>').appendTo($('#main'));
-    build_buttons();
-    build_canvas();
+    build_move_list_modal(); */
 
-    $('#winnerModal .new-game-button').click(function () {
+/*    $('#winnerModal .new-game-button').click(function () {
       $('#winnerModal').modal('hide');
       window.location.href = '/games/play/?game=' + name;
     });
 */
+
     build_engine(namespace, mode, first_color, name, game_type, color);
     build_gui(namespace, color, game_id, game_type);
     build_opponent(namespace, color, game_type, game_id, opponent_color, username, owner_id, opponent_id);
@@ -187,7 +159,8 @@ var GamePage = function (namespace, n, fc, c, oc, gt, gi, m, u, oi, opi, r) {
     if (replay === true) {
       opponent.replay_game();
     }
-/*    $("#replay").click(function () {
+
+    /*    $("#replay").click(function () {
       var moves = manager.get_moves();
       build_engine(namespace, mode, first_color, name, game_type);
       build_gui(namespace, color, game_id);
