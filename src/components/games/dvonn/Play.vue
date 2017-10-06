@@ -12,7 +12,6 @@
     </v-layout>
     <v-layout row justify-center>
       <v-dialog v-model="dialog" persistent>
-        <v-btn primary dark slot="activator">Open Dialog</v-btn>
         <v-card>
           <v-card-title class="headline">Move list</v-card-title>
           <v-card-text id="moveListBody"></v-card-text>
