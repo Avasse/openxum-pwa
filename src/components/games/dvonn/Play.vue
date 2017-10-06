@@ -14,7 +14,11 @@
       <v-dialog v-model="dialog" persistent>
         <v-card>
           <v-card-title class="headline">Move list</v-card-title>
-          <v-card-text id="moveListBody"></v-card-text>
+          <v-card-text id="moveListBody">
+            <ol>
+              <li v-for="move in moves">{{move}}</li>
+            </ol>
+          </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn class="green--text darken-1" flat="flat" @click.native="dialog = false">OK</v-btn>

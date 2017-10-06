@@ -53,8 +53,7 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0",
-    "uglify-es": "^3.0.25",
-    "jquery": "^3.2.1"
+    "uglify-es": "^3.0.25"
   },
   "engines": {
     "node": ">= 4.0.0",

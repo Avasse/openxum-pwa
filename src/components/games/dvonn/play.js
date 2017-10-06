@@ -1,13 +1,13 @@
 import * as OpenXum from '../openxum/OpenXum'
 import * as Dvonn from './js/Dvonn'
-import $ from 'jquery'
 
 var page;
 
 export default {
   data () {
     return {
-      dialog: false
+      dialog: false,
+      moves: []
     }
   },
   mounted() {
@@ -15,22 +15,18 @@ export default {
   },
   methods: {
     displayMoveList() {
-      var body = $('#moveListBody');
-      var moves = page.get_moves();
-      var list = $('<ol>');
+      var list = page.get_moves();
+      var moves = [];
 
-      body.empty();
-      moves.split(";").forEach(function (str) {
+      list.split(";").forEach(function (str) {
         if (str !== '') {
-          var item = $('<li>');
           var move = page.build_move();
 
           move.parse(str);
-          item.html(move.to_string());
-          item.appendTo(list);
+          moves.push(move.to_string());
         }
       });
-      list.appendTo(body);
+      this.moves = moves;
       this.dialog = true;
     }
   }
