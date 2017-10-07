@@ -1,4 +1,4 @@
-import { APIENDPOINT , getHeader } from '../../app.config';
+import { APIENDPOINT, getHeader } from '../../app.config';
 import axios from 'axios';
 
 export default {

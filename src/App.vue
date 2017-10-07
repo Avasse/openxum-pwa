@@ -7,17 +7,19 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat to="/">Home</v-btn>
         <v-btn flat to="/games">Games</v-btn>
         <v-btn flat v-if="checkLogin">Ranking</v-btn>
+        <v-btn flat to="/mygames" v-if="checkLogin">My offline games</v-btn>
+        <v-btn flat v-if="checkLogin">My profile</v-btn>
         <v-btn flat>FAQ</v-btn>
-        <v-btn flat>Sign up</v-btn>
+        <v-btn flat v-if="!checkLogin">Sign up</v-btn>
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-menu :nudge-width="100">
           <v-btn flat slot="activator">
-            Languages
-            <v-icon>arrow_drop_down</v-icon>
+            Languages<v-icon>arrow_drop_down</v-icon>
           </v-btn>
           <v-list>
             <v-list-tile v-for="item in items" :key="item" @click="">

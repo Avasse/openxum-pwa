@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import Games from '@/components/Games'
+import MyGames from '@/components/MyGames'
 import Login from '@/components/login/Login'
 
 import DvonnRule from '@/components/games/dvonn/Rule'
@@ -20,6 +21,11 @@ const router = new Router({
       path: '/games',
       name: 'Games',
       component: Games
+    },
+    {
+      path: '/mygames',
+      name: 'MyGames',
+      component: MyGames
     },
     {
       path: '/login',
