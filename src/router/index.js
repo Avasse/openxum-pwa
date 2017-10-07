@@ -50,7 +50,7 @@ const router = new Router({
       component: DvonnRule
     },
     {
-      path: '/games/play/dvonn',
+      path: '/games/play/dvonn/:type/:color/:mode/:idGame',
       name: 'DvonnPlay',
       component: DvonnPlay,
       meta: {requiresAuth: true, playerAuth: true}

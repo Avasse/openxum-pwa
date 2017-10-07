@@ -11,7 +11,14 @@ export default {
     }
   },
   mounted() {
-    page = new OpenXum.GamePage(Dvonn, 'dvonn', 0, 0 , 1 , 'ai', '-1', 0, 'eric', 'eric', 'nath', 0);
+    var color = this.$route.params.color === 'black' ? 0 : 1;
+    var opponent_color = this.$route.params.color === 'black' ? 1 : 0;
+    var mode = this.$route.params.mode === 'regular' ? 0 : 1;
+    const status = JSON.parse(window.localStorage.getItem('openXumUser'));
+
+    // TODO: owner_id = user_id ; opponent_id = '' ; replay = 0
+    page = new OpenXum.GamePage(Dvonn, 'dvonn', 0, color, opponent_color , this.$route.params.type,
+      this.$route.params.idGame, mode, status.data.username, status.data.username, '', 0);
   },
   methods: {
     displayMoveList() {

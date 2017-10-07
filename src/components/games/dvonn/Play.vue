@@ -2,9 +2,9 @@
   <v-container fluid>
     <v-layout row text-xs-center>
       <v-flex xl4 lg6 md8 sm10 xs12 offset-xl4 offset-lg3 offset-md2 offset-sm1 offset-xs0>
-        <v-btn success light id="status">Ready!</v-btn>
-        <v-btn warning light id="replay">Replay</v-btn>
-        <v-btn error light id="list" v-on:click.native="displayMoveList()">Move list</v-btn>
+        <v-btn color="success" light id="status">Ready!</v-btn>
+        <v-btn color="warning" light id="replay">Replay</v-btn>
+        <v-btn color="error" light id="list" v-on:click.native="displayMoveList()">Move list</v-btn>
         <div id="boardDiv">
           <canvas id="board"/>
         </div>
