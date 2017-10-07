@@ -5,6 +5,8 @@ import Games from '@/components/Games'
 import MyGames from '@/components/MyGames'
 import Login from '@/components/login/Login'
 
+import Create from '@/components/games/Create'
+import Play from '@/components/games/Play'
 import DvonnRule from '@/components/games/dvonn/Rule'
 import DvonnPlay from '@/components/games/dvonn/Play'
 
@@ -21,6 +23,16 @@ const router = new Router({
       path: '/games',
       name: 'Games',
       component: Games
+    },
+    {
+      path: '/create/:gameType',
+      name: 'Create',
+      component: Create
+    },
+    {
+      path: '/play/:gameType',
+      name: 'Play',
+      component: Play
     },
     {
       path: '/mygames',
