@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar fixed>
+    <v-toolbar dense class="primary">
       <v-toolbar-items class="hidden-md-and-up">
         <v-toolbar-side-icon></v-toolbar-side-icon>
       </v-toolbar-items>

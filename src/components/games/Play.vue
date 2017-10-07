@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-btn :to="`/create/${gameType}`" light warning>Create</v-btn>
+    <v-btn :to="`/create/${gameType}`" light color="warning">Create</v-btn>
   </v-container>
 </template>
 

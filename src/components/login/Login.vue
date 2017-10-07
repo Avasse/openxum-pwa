@@ -1,23 +1,50 @@
 <template>
-  <div class="login">
-    <h1>Login Page</h1>
-    <form v-on:submit.prevent="loginUser()">
-      <input type="text" placeholder="enter username" v-model="loginDetails.username">
-      <input type="password" placeholder="enter password" v-model="loginDetails.password">
-      <button type="submit" value="login" >LOGIN</button>
-    </form>
-  </div>
+  <v-container fluid>
+    <v-layout row>
+      <v-flex xl2 lg2 md8 sm10 xs12 offset-xl5 offset-lg5 offset-md2 offset-sm1>
+        <v-card class="grey lighten-4 elevation-0">
+          <v-card-text>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs4>
+                  <v-subheader>Username</v-subheader>
+                </v-flex>
+                <v-flex xs8>
+                  <v-text-field placeholder="enter username" v-model="loginDetails.username" required/>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs4>
+                  <v-subheader>Password</v-subheader>
+                </v-flex>
+                <v-flex xs8>
+                  <v-text-field type="password" placeholder="enter password" v-model="loginDetails.password" required />
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs4>
+                  <v-btn @click="loginUser" value="login">LOGIN</v-btn>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
   import loginService from './loginService.js';
+
   export default {
+    name: 'Login',
     data() {
       return {
         loginDetails: {
           username: '',
           password: ''
-        },
+        }
       }
     },
     methods: {
