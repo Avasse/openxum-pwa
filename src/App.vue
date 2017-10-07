@@ -8,7 +8,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/games">Games</v-btn>
-        <v-btn flat>Ranking</v-btn>
+        <v-btn flat v-if="checkLogin">Ranking</v-btn>
         <v-btn flat>FAQ</v-btn>
         <v-btn flat>Sign up</v-btn>
       </v-toolbar-items>
@@ -25,7 +25,8 @@
             </v-list-tile>
           </v-list>
         </v-menu>
-        <v-btn flat>Sign in</v-btn>
+        <v-btn flat to="/login" v-if="!checkLogin">Sign in</v-btn>
+        <v-btn flat v-on:click="logout()" v-if="checkLogin">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -46,6 +47,20 @@
           'English', 'French'
         ],
         title: 'OpenXum'
+      }
+    },
+    methods: {
+      logout:function() {
+        var app = this;
+
+        localStorage.removeItem("openXumUser");
+        app.$router.push({ name: 'login'});
+        app.$store.state.isLoggedIn = false;
+      }
+    },
+    computed: {
+      checkLogin() {
+        return this.$store.state.isLoggedIn;
       }
     }
   }

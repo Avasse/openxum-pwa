@@ -11,7 +11,7 @@
               <img :src="games[i].logo" style="max-width: 200px"></img>
             </v-flex>
             <v-flex xs12>
-              <v-btn :to="games[i].url2" light>Play</v-btn>
+              <v-btn :to="games[i].url2" light v-if="checkLogin">Play</v-btn>
             </v-flex>
           </v-layout>
         </v-card>
@@ -22,7 +22,6 @@
 
 <script>
   export default {
-    name: 'games',
     data () {
       return {
         games: [
@@ -35,6 +34,11 @@
           {name: 'Tzaar', logo: require('../assets/tzaar.jpg'), url: '/games/rule/tzaar'},
           {name: 'Yinsh', logo: require('../assets/yinsh.jpg'), url: '/games/rule/yinsh'},
           {name: 'Zertz', logo: require('../assets/zertz.jpg'), url: '/games/rule/zertz'}]
+      }
+    },
+    computed: {
+      checkLogin() {
+        return this.$store.state.isLoggedIn;
       }
     }
   }
