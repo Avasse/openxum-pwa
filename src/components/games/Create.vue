@@ -1,6 +1,6 @@
 <template>
   <v-layout row class="mt-1">
-    <v-flex xl2 lg2 md8 sm10 xs12 offset-xl5 offset-lg5 offset-md2 offset-sm1>
+    <v-flex xl6 lg6 md8 sm10 xs12 offset-xl3 offset-lg3 offset-md2 offset-sm1>
       <v-card class="grey lighten-4 elevation-0">
         <v-card-text>
           <v-container fluid>
@@ -55,6 +55,9 @@
 </template>
 
 <script>
+  import { APIENDPOINT, getHeader } from '../../app.config';
+  import axios from 'axios';
+
   export default {
     name: 'CreateGame',
     data () {
@@ -71,67 +74,59 @@
     },
     methods: {
       createGame: function () {
-
         if (this.type === 'ai' || this.type === 'remote_ai' || this.type === 'gui') {
-
-          console.log('OK');
-
           this.$router.push('/games/play/' + this.gameType + '/' + this.type + '/' + this.color + '/' + this.mode + '/' + '-1');
+        } else if (this.type === 'offline') {
+          var app = this;
 
-          //  '&color=' + req.param('color') + '&mode=' + req.param('mode') + '&game_type=' + req.param('game_type') + '&game_id=-1');
+          (new Promise(function (resolve, reject) {
+            const status = JSON.parse(window.localStorage.getItem('openXumUser'));
+            const url = APIENDPOINT + '/api/game/create/' + app.gameType + '/' + app.name + '/' + app.color + '/' + app.mode;
+            const config = {'headers': getHeader()};
 
-        } /*else if (req.param('game_type') === 'offline') {
-          req.app.db.models.GameType.findOne({ name: req.param('game') }, null,
-            { safe: true }, function (err, gametype) {
-              req.app.db.models.Game.findOne({ name: req.param('name') }, null,
-                { safe: true }, function (err, game) {
-                  if (!game) {
-                    var fieldsToSet = {
-                      name: req.param('name'),
-                      game: gametype._id,
-                      color: req.param('color'),
-                      mode: req.param('mode'),
-                      type: 'offline',
-                      status: 'wait',
-                      userCreated: {
-                        id: req.user._id,
-                        name: req.user.username
-                      },
-                      opponent: { id: null },
-                      currentColor: req.param('color')
-                    };
-                    req.app.db.models.Game.create(fieldsToSet, function (err, user) {
-                    });
-                  }
-                });
-            });
-          res.redirect('/games/new/?game=' + req.param('game'));
+            axios.post(url, {}, config)
+              .then(function (res) {
+                resolve(res);
+              })
+              .catch(function (err) {
+                reject(err)
+              })
+          })).then(function (res) {
+            if (res.status === 200) {
+
+              console.log('OK');
+
+            }
+          }).catch(function (err) {
+            console.log(err);
+          });
+
         } else { // online
-          req.app.db.models.GameType.findOne({ name: req.param('game') }, null,
-            { safe: true }, function (err, gametype) {
-              req.app.db.models.Game.findOne({ name: req.param('name') }, null,
-                { safe: true }, function (err, game) {
-                  if (!game) {
-                    var fieldsToSet = {
-                      name: req.param('name'),
-                      game: gametype._id,
-                      color: req.param('color'),
-                      mode: req.param('mode'),
-                      type: 'online',
-                      status: 'wait',
-                      userCreated: {
-                        id: req.user._id,
-                        name: req.user.username
-                      },
-                      opponent: { id: null }
-                    };
-                    req.app.db.models.Game.create(fieldsToSet, function (err, user) {
-                    });
-                  }
-                });
-            });
-          res.redirect('/games/new/?game='  + req.param('game')); */
-
+          /*          req.app.db.models.GameType.findOne({ name: req.param('game') }, null,
+           { safe: true }, function (err, gametype) {
+           req.app.db.models.Game.findOne({ name: req.param('name') }, null,
+           { safe: true }, function (err, game) {
+           if (!game) {
+           var fieldsToSet = {
+           name: req.param('name'),
+           game: gametype._id,
+           color: req.param('color'),
+           mode: req.param('mode'),
+           type: 'online',
+           status: 'wait',
+           userCreated: {
+           id: req.user._id,
+           name: req.user.username
+           },
+           opponent: { id: null }
+           };
+           req.app.db.models.Game.create(fieldsToSet, function (err, user) {
+           });
+           }
+           });
+           });
+           res.redirect('/games/new/?game='  + req.param('game')); */
+        }
       }
     },
     mounted() {
