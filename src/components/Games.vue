@@ -1,11 +1,11 @@
 <template>
   <v-container grid-list-md text-xs-center>
       <v-layout wrap>
-          <v-flex class="m-3" xs2 v-for="(game, i) in games" :key="i">
+          <v-flex class="m-3" xs12 sm6 md4 lg3 xl2 v-for="(game, i) in games" :key="i">
               <v-card class="card mr-3 mb-3">
                   <v-card-media :src="game.logo" height="200px"></v-card-media>
                   <v-card-actions d-flex>
-                      <v-btn :to="`/play/${game.gametype}`" v-if="checkLogin" flat color="primary">
+                      <v-btn :to="`/play/${game.gametype}`" flat color="primary">
                           Jouer
                           <v-icon color="primary" right>
                               play_arrow
