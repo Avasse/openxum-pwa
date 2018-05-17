@@ -74,3 +74,9 @@
 <style lang="stylus">
   @import './stylus/main';
 </style>
+
+<style>
+  .toolbar .toolbar__items .btn:not(.btn--disabled), .toolbar__title {
+    color: white;
+  }
+</style>
