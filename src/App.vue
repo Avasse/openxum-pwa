@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app light>
     <v-toolbar dense class="primary">
       <v-toolbar-items class="hidden-md-and-up">
         <v-toolbar-side-icon></v-toolbar-side-icon>
@@ -34,7 +34,7 @@
     <div class="main">
       <router-view></router-view>
     </div>
-    <v-footer :fixed="fixed">
+    <v-footer :fixed="fixed" v-if="!isHomePage">
       <span>&copy; 2014-2017 OpenXum</span>
     </v-footer>
   </v-app>
@@ -63,6 +63,9 @@
     computed: {
       checkLogin() {
         return this.$store.state.isLoggedIn;
+      },
+      isHomePage() {
+        return this.$route.name === "Home";
       }
     }
   }
