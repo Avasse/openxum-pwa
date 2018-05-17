@@ -79,4 +79,8 @@
     .card__actions {
         justify-content: space-between;
     }
+
+    .container > .layout.wrap {
+      margin-bottom: 1rem;
+    }
 </style>

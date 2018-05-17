@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/components/Main'
+import Home from '@/components/Home'
 import Games from '@/components/Games'
 import MyGames from '@/components/MyGames'
 import Login from '@/components/login/Login'
@@ -16,8 +16,8 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'Home',
+      component: Home
     },
     {
       path: '/games',

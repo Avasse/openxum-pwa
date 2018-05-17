@@ -31,9 +31,9 @@
         <v-btn flat v-on:click="logout()" v-if="checkLogin">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <main>
+    <div class="main">
       <router-view></router-view>
-    </main>
+    </div>
     <v-footer :fixed="fixed">
       <span>&copy; 2014-2017 OpenXum</span>
     </v-footer>
