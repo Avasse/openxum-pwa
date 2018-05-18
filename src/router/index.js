@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Games from '@/components/Games'
 import MyGames from '@/components/MyGames'
 import Login from '@/components/login/Login'
+import SignUp from '@/components/signUp/SignUp'
 
 import Create from '@/components/games/Create'
 import Play from '@/components/games/Play'
@@ -43,6 +44,11 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
     },
     {
       path: '/games/rule/dvonn',

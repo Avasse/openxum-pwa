@@ -16,7 +16,7 @@
               class="blue lighten-2 mt-5"
               dark
               large
-              href="/pre-made-themes"
+              to="/games"
             >
               Get Started
             </v-btn>
