@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/components/Main'
+import Home from '@/components/Home'
 import Games from '@/components/Games'
 import MyGames from '@/components/MyGames'
 import Login from '@/components/login/Login'
+import SignUp from '@/components/signUp/SignUp'
 
 import Create from '@/components/games/Create'
 import Play from '@/components/games/Play'
@@ -14,10 +15,11 @@ Vue.use(Router);
 
 const router = new Router({
   routes: [
+    { path: '/', redirect: { name: 'Home' }},
     {
-      path: '/',
-      name: 'Main',
-      component: Main
+      path: '/home',
+      name: 'Home',
+      component: Home
     },
     {
       path: '/games',
@@ -43,6 +45,11 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
     },
     {
       path: '/games/rule/dvonn',

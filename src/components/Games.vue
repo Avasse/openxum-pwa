@@ -21,27 +21,6 @@
               </v-card>
           </v-flex>
       </v-layout>
-
-
-
-
-      <!--<v-layout row wrap class="mt-1">-->
-      <!--<v-flex xl2 lg3 md4 sm6 xs6 v-for="(value, i) in games" :key="i">-->
-        <!--<v-card height="350px">-->
-          <!--<v-layout row wrap text-xs-center>-->
-            <!--<v-flex xs12>-->
-              <!--<v-btn :to="games[i].url" light color="warning">{{games[i].name}}</v-btn>-->
-            <!--</v-flex>-->
-            <!--<v-flex xs12>-->
-              <!--<img :src="games[i].logo" style="max-width: 200px"></img>-->
-            <!--</v-flex>-->
-            <!--<v-flex xs12>-->
-              <!--<v-btn :to="`/play/${games[i].gametype}`" light v-if="checkLogin">Play</v-btn>-->
-            <!--</v-flex>-->
-          <!--</v-layout>-->
-        <!--</v-card>-->
-      <!--</v-flex>-->
-    <!--</v-layout>-->
   </v-container>
 </template>
 
@@ -78,5 +57,9 @@
 
     .card__actions {
         justify-content: space-between;
+    }
+
+    .container > .layout.wrap {
+      margin-bottom: 1rem;
     }
 </style>
