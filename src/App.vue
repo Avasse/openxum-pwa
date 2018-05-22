@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app :dark="!light" :light="light">
     <v-toolbar dense class="primary">
       <v-toolbar-items class="hidden-md-and-up">
         <v-toolbar-side-icon></v-toolbar-side-icon>
@@ -7,7 +7,7 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat to="/">
+        <v-btn flat to="/home">
           <v-icon left>home</v-icon>
           Home
         </v-btn>
@@ -53,8 +53,12 @@
           <v-icon left>how_to_reg</v-icon>
           Sign in
         </v-btn>
-        <v-btn flat v-on:click="logout()" v-if="checkLogin">
+        <v-btn flat @click="logout()" v-if="checkLogin">
           <v-icon>power_settings_new</v-icon>
+        </v-btn>
+        <v-btn flat @click="switchLight">
+          <v-icon v-if="light">wb_sunny</v-icon>
+          <v-icon v-if="!light">brightness_2</v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -75,23 +79,37 @@
         items: [
           'English', 'French'
         ],
-        title: 'OpenXum'
+        title: 'OpenXum',
+        light: true
+      }
+    },
+    created () {
+      if (localStorage.getItem('light') === null) {
+        this.light = true;
+        localStorage.setItem('light', true);
+      } else {
+        this.light = localStorage.getItem('light') === 'true' ? true : false
       }
     },
     methods: {
-      logout:function() {
+      logout () {
         var app = this;
 
         localStorage.removeItem("openXumUser");
         app.$router.push({ name: 'Home'});
         app.$store.state.isLoggedIn = false;
+      },
+
+      switchLight () {
+        this.light = !this.light;
+        localStorage.setItem('light', this.light);
       }
     },
     computed: {
-      checkLogin() {
+      checkLogin () {
         return this.$store.state.isLoggedIn;
       },
-      isHomePage() {
+      isHomePage () {
         return this.$route.name === "Home";
       }
     }
@@ -105,5 +123,9 @@
 <style>
   .toolbar .toolbar__items .btn:not(.btn--disabled), .toolbar__title {
     color: white;
+  }
+
+  .application--dark > .card {
+    background-color: white;
   }
 </style>
