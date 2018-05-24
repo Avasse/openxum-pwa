@@ -7,9 +7,9 @@ import Login from '@/components/login/Login'
 import SignUp from '@/components/signUp/SignUp'
 
 import Create from '@/components/games/Create'
-import Play from '@/components/games/Play'
-import DvonnRule from '@/components/games/dvonn/Rule'
-import DvonnPlay from '@/components/games/dvonn/Play'
+import CreateGame from '@/components/games/CreateGame'
+import DvonnRules from '@/components/games/dvonn/RulesDvonn'
+import DvonnPlay from '@/components/games/dvonn/PlayDvonn'
 
 Vue.use(Router);
 
@@ -29,12 +29,13 @@ const router = new Router({
     {
       path: '/create/:gameType',
       name: 'Create',
-      component: Create
+      component: Create,
+      meta: {requiresAuth: true, playerAuth: true}
     },
     {
       path: '/play/:gameType',
       name: 'Play',
-      component: Play
+      component: CreateGame
     },
     {
       path: '/mygames',
@@ -52,9 +53,9 @@ const router = new Router({
       component: SignUp
     },
     {
-      path: '/games/rule/dvonn',
-      name: 'DvonnRule',
-      component: DvonnRule
+      path: '/games/rules/dvonn',
+      name: 'DvonnRules',
+      component: DvonnRules
     },
     {
       path: '/games/play/dvonn/:type/:color/:mode/:idGame',

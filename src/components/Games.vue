@@ -5,13 +5,13 @@
               <v-card class="card mr-3 mb-3">
                   <v-card-media :src="game.logo" height="200px"></v-card-media>
                   <v-card-actions d-flex>
-                      <v-btn :to="`/play/${game.gametype}`" flat color="primary">
+                      <v-btn :to="`/create/${game.gametype}`" flat color="primary" v-if="game.gametype">
                           Jouer
                           <v-icon color="primary" right>
                               play_arrow
                           </v-icon>
                       </v-btn>
-                      <v-btn :to="games[i].url" flat color="primary">
+                      <v-btn :to="games[i].rules" flat color="primary">
                           Régles
                           <v-icon color="primary" right>
                             library_books
@@ -29,19 +29,19 @@
     data () {
       return {
         games: [
-          {name: 'Dvonn', logo: require('../assets/gameLogo/dvonn.jpg'), url: '/games/rule/dvonn', gametype: 'dvonn'},
-          {name: 'Gipf', logo: require('../assets/gameLogo/gipf.jpg'), url: '/games/rule/gipf'},
-          {name: 'Invers', logo: require('../assets/gameLogo/invers.jpg'), url: '/games/rule/invers'},
-          {name: 'Kamisado', logo: require('../assets/gameLogo/kamisado.jpg'), url: '/games/rule/kamisado'},
-          {name: 'Paletto', logo: require('../assets/gameLogo/paletto.jpg'), url: '/games/rule/paletto'},
-          {name: 'Pentago', logo: require('../assets/gameLogo/pentago.jpg'), url: '/games/rule/pentago'},
-          {name: 'Tzaar', logo: require('../assets/gameLogo/tzaar.jpg'), url: '/games/rule/tzaar'},
-          {name: 'Yinsh', logo: require('../assets/gameLogo/yinsh.jpg'), url: '/games/rule/yinsh'},
-          {name: 'Zertz', logo: require('../assets/gameLogo/zertz.jpg'), url: '/games/rule/zertz'}]
+          {name: 'Dvonn', logo: require('../assets/gameLogo/dvonn.jpg'), rules: '/games/rules/dvonn', gametype: 'dvonn'},
+          {name: 'Gipf', logo: require('../assets/gameLogo/gipf.jpg'), rules: '/games/rules/gipf'},
+          {name: 'Invers', logo: require('../assets/gameLogo/invers.jpg'), rules: '/games/rules/invers'},
+          {name: 'Kamisado', logo: require('../assets/gameLogo/kamisado.jpg'), rules: '/games/rules/kamisado'},
+          {name: 'Paletto', logo: require('../assets/gameLogo/paletto.jpg'), rules: '/games/rules/paletto'},
+          {name: 'Pentago', logo: require('../assets/gameLogo/pentago.jpg'), rules: '/games/rules/pentago'},
+          {name: 'Tzaar', logo: require('../assets/gameLogo/tzaar.jpg'), rules: '/games/rules/tzaar'},
+          {name: 'Yinsh', logo: require('../assets/gameLogo/yinsh.jpg'), rules: '/games/rules/yinsh'},
+          {name: 'Zertz', logo: require('../assets/gameLogo/zertz.jpg'), rules: '/games/rules/zertz'}]
       }
     },
     computed: {
-      checkLogin() {
+      checkLogin () {
         return this.$store.state.isLoggedIn;
       }
     }
