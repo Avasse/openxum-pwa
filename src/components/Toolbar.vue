@@ -51,12 +51,12 @@
         <v-icon left>how_to_reg</v-icon>
         Sign in
       </v-btn>
-      <v-btn flat @click="$emit('logout')" v-if="checkLogin">
-        <v-icon>power_settings_new</v-icon>
-      </v-btn>
       <v-btn flat @click="$emit('switchLight')">
         <v-icon v-if="light">wb_sunny</v-icon>
         <v-icon v-if="!light">brightness_2</v-icon>
+      </v-btn>
+      <v-btn flat @click="$emit('logout')" v-if="checkLogin">
+        <v-icon>fas fa-sign-out-alt</v-icon>
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>
