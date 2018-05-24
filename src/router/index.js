@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Games from '@/components/Games'
 import MyGames from '@/components/MyGames'
-import Login from '@/components/login/Login'
-import SignUp from '@/components/signUp/SignUp'
+import Login from '@/components/Login'
+import SignUp from '@/components/SignUp'
+import Profile from '@/components/Profile'
 
 import Create from '@/components/games/Create'
 import CreateGame from '@/components/games/CreateGame'
@@ -27,17 +28,6 @@ const router = new Router({
       component: Games
     },
     {
-      path: '/create/:gameType',
-      name: 'Create',
-      component: Create,
-      meta: {requiresAuth: true, playerAuth: true}
-    },
-    {
-      path: '/play/:gameType',
-      name: 'Play',
-      component: CreateGame
-    },
-    {
       path: '/mygames',
       name: 'MyGames',
       component: MyGames
@@ -51,6 +41,23 @@ const router = new Router({
       path: '/signup',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+      meta: {requiresAuth: true, playerAuth: true}
+    },
+    {
+      path: '/create/:gameType',
+      name: 'Create',
+      component: Create,
+      meta: {requiresAuth: true, playerAuth: true}
+    },
+    {
+      path: '/play/:gameType',
+      name: 'Play',
+      component: CreateGame
     },
     {
       path: '/games/rules/dvonn',

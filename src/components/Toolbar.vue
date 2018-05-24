@@ -18,7 +18,7 @@
           <v-icon left>insert_chart</v-icon>
           Ranking
       </v-btn>
-      <v-btn flat to="/mygames" v-if="checkLogin">
+      <v-btn flat v-if="checkLogin">
           <v-icon left>wifi_off</v-icon>
           Offline
       </v-btn>
@@ -26,7 +26,7 @@
           <v-icon left>question_answer</v-icon>
           FAQ
       </v-btn>
-      <v-btn flat v-if="checkLogin">
+      <v-btn flat to="/profile" v-if="checkLogin">
           <v-icon left>account_box</v-icon>
           Profile
       </v-btn>
