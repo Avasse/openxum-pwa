@@ -76,7 +76,7 @@ export default {
 <style>
   canvas {
     width: 600px;
-    height: 600px;
+    height: 570px;
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
