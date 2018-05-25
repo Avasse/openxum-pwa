@@ -9,8 +9,16 @@ import Profile from '@/components/Profile'
 
 import Create from '@/components/games/Create'
 import CreateGame from '@/components/games/CreateGame'
-import DvonnRules from '@/components/games/dvonn/RulesDvonn'
-import DvonnPlay from '@/components/games/dvonn/PlayDvonn'
+import PlayDvonn from '@/components/games/dvonn/PlayDvonn'
+import RulesDvonn from '@/components/games/dvonn/RulesDvonn'
+import RulesGipf from '@/components/games/gipf/RulesGipf'
+import RulesInvers from '@/components/games/invers/RulesInvers'
+import RulesKamisado from '@/components/games/kamisado/RulesKamisado'
+import RulesPaletto from '@/components/games/paletto/RulesPaletto'
+import RulesPentago from '@/components/games/pentago/RulesPentago'
+import RulesTzaar from '@/components/games/tzaar/RulesTzaar'
+import RulesYinsh from '@/components/games/yinsh/RulesYinsh'
+import RulesZertz from '@/components/games/zertz/RulesZertz'
 
 Vue.use(Router);
 
@@ -60,16 +68,56 @@ const router = new Router({
       component: CreateGame
     },
     {
-      path: '/games/rules/dvonn',
-      name: 'DvonnRules',
-      component: DvonnRules
+      path: '/games/play/dvonn/:type/:color/:mode/:idGame',
+      name: 'PlayDvonn',
+      component: PlayDvonn,
+      meta: {requiresAuth: true, playerAuth: true}
     },
     {
-      path: '/games/play/dvonn/:type/:color/:mode/:idGame',
-      name: 'DvonnPlay',
-      component: DvonnPlay,
-      meta: {requiresAuth: true, playerAuth: true}
-    }
+      path: '/games/rules/dvonn',
+      name: 'RulesDvonn',
+      component: RulesDvonn
+    },
+    {
+      path: '/games/rules/gipf',
+      name: 'RulesGipf',
+      component: RulesGipf
+    },
+    {
+      path: '/games/rules/invers',
+      name: 'RulesInvers',
+      component: RulesInvers
+    },
+    {
+      path: '/games/rules/kamisado',
+      name: 'RulesKamisado',
+      component: RulesKamisado
+    },
+    {
+      path: '/games/rules/paletto',
+      name: 'RulesPaletto',
+      component: RulesPaletto
+    },
+    {
+      path: '/games/rules/pentago',
+      name: 'RulesPentago',
+      component: RulesPentago
+    },
+    {
+      path: '/games/rules/tzaar',
+      name: 'RulesTzaar',
+      component: RulesTzaar
+    },
+    {
+      path: '/games/rules/yinsh',
+      name: 'RulesYinsh',
+      component: RulesYinsh
+    },
+    {
+      path: '/games/rules/zertz',
+      name: 'RulesZertz',
+      component: RulesZertz
+    },
   ]
 });
 
