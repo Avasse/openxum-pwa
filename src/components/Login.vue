@@ -1,41 +1,44 @@
 <template>
-  <v-container fluid>
-    <v-layout row>
-      <v-flex xl2 lg2 md8 sm10 xs12 offset-xl5 offset-lg5 offset-md2 offset-sm1>
-        <v-card class="grey lighten-4 elevation-0">
-          <v-card-text>
-            <v-container fluid>
-              <v-layout row>
-                <v-flex xs4>
-                  <v-subheader>Username</v-subheader>
-                </v-flex>
-                <v-flex xs8>
-                  <v-text-field placeholder="enter username" v-model="loginDetails.username" required/>
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs4>
-                  <v-subheader>Password</v-subheader>
-                </v-flex>
-                <v-flex xs8>
-                  <v-text-field type="password" placeholder="enter password" v-model="loginDetails.password" required />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs4>
-                  <v-btn @click="loginUser" value="login">LOGIN</v-btn>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-content>
+    <v-container fluid fill-height>
+      <v-layout align-center justify-center>
+        <v-flex xs12 sm8 md4>
+          <v-card class="elevation-12">
+            <v-toolbar dark color="primary">
+              <v-toolbar-title>Login form</v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+              <v-form>
+                <v-text-field 
+                  v-model="loginDetails.username" 
+                  required 
+                  prepend-icon="person" 
+                  name="login" 
+                  label="Login" 
+                  type="text"></v-text-field>
+                <v-text-field 
+                  v-model="loginDetails.password" 
+                  required 
+                  id="password" 
+                  prepend-icon="lock" 
+                  name="password" 
+                  label="Password" 
+                  type="password"></v-text-field>
+              </v-form>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn @click="loginUser" value="login" color="primary">Login</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
 </template>
 
 <script>
-  import loginService from './loginService.js';
+  import accountService from '../services/AccountService.js';
 
   export default {
     name: 'Login',
@@ -52,7 +55,7 @@
         const authUser = {};
         var app = this;
 
-        loginService.login(this.loginDetails)
+        accountService.login(this.loginDetails)
           .then(function (res) {
             if (res.status === 200) {
               authUser.data = res.data.user;

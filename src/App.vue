@@ -1,68 +1,70 @@
 <template>
-  <v-app>
-    <v-toolbar dense class="primary">
-      <v-toolbar-items class="hidden-md-and-up">
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-      </v-toolbar-items>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat to="/">Home</v-btn>
-        <v-btn flat to="/games">Games</v-btn>
-        <v-btn flat v-if="checkLogin">Ranking</v-btn>
-        <v-btn flat to="/mygames" v-if="checkLogin">My offline games</v-btn>
-        <v-btn flat v-if="checkLogin">My profile</v-btn>
-        <v-btn flat>FAQ</v-btn>
-        <v-btn flat v-if="!checkLogin">Sign up</v-btn>
-      </v-toolbar-items>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-menu :nudge-width="100">
-          <v-btn flat slot="activator">
-            Languages<v-icon>arrow_drop_down</v-icon>
-          </v-btn>
-          <v-list>
-            <v-list-tile v-for="item in items" :key="item" @click="">
-              <v-list-tile-title v-text="item"></v-list-tile-title>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-        <v-btn flat to="/login" v-if="!checkLogin">Sign in</v-btn>
-        <v-btn flat v-on:click="logout()" v-if="checkLogin">Logout</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-    <main>
+  <v-app :dark="!light" :light="light">
+    <toolbar
+      :light="light"
+      :languages="languages"
+      @logout="logout()"
+      @switchLang="switchLang()"
+      @switchLight="switchLight()"/>
+    <div class="main">
       <router-view></router-view>
-    </main>
-    <v-footer :fixed="fixed">
+    </div>
+    <v-footer fixed v-if="!isHomePage">
       <span>&copy; 2014-2017 OpenXum</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+  import Toolbar from './components/Toolbar.vue'
+
   export default {
     data () {
       return {
-        fixed: true,
-        items: [
-          'English', 'French'
-        ],
-        title: 'OpenXum'
+        title: 'OpenXum',
+        light: true,
+        languages: {
+          en: {
+            label: 'English',
+            src: require('./assets/flags/en.png')
+          },
+          fr: {
+            label: 'French',
+            src: require('./assets/flags/fr.png')
+          }
+        }
+      }
+    },
+    components: {
+      Toolbar
+    },
+    created () {
+      if (localStorage.getItem('light') === null) {
+        this.light = true;
+        localStorage.setItem('light', true);
+      } else {
+        this.light = localStorage.getItem('light') === 'true' ? true : false
       }
     },
     methods: {
-      logout:function() {
+      logout () {
         var app = this;
 
         localStorage.removeItem("openXumUser");
-        app.$router.push({ name: 'login'});
+        app.$router.push({ name: 'Home'});
         app.$store.state.isLoggedIn = false;
-      }
+      },
+
+      switchLight () {
+        this.light = !this.light;
+        localStorage.setItem('light', this.light);
+      },
+
+      switchLang () {}
     },
     computed: {
-      checkLogin() {
-        return this.$store.state.isLoggedIn;
+      isHomePage () {
+        return this.$route.name === "Home";
       }
     }
   }
@@ -70,4 +72,10 @@
 
 <style lang="stylus">
   @import './stylus/main';
+</style>
+
+<style>
+  .toolbar .toolbar__items .btn:not(.btn--disabled), .toolbar__title {
+    color: white;
+  }
 </style>

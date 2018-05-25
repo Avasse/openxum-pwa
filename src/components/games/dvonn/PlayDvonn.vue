@@ -29,7 +29,48 @@
   </v-container>
 </template>
 
-<script src="./play.js"></script>
+<script>
+import * as OpenXum from '../openxum/OpenXum'
+import * as Dvonn from './js/Dvonn'
+
+export default {
+  data () {
+    return {
+      dialog: false,
+      moves: [],
+      page: null
+    }
+  },
+  mounted() {
+    var color = this.$route.params.color === 'black' ? 0 : 1;
+    var opponent_color = this.$route.params.color === 'black' ? 1 : 0;
+    var mode = this.$route.params.mode === 'regular' ? 0 : 1;
+    const status = JSON.parse(window.localStorage.getItem('openXumUser'));
+
+    // TODO: owner_id = user_id ; opponent_id = '' ; replay = 0
+    this.page = new OpenXum.GamePage(Dvonn, 'dvonn', 0, color, opponent_color , this.$route.params.type,
+      this.$route.params.idGame, mode, status.data.username, status.data.username, '', 0);
+  },
+  methods: {
+    displayMoveList() {
+      var list = this.page.get_moves();
+      var moves = [];
+      var _this = this;
+
+      list.split(";").forEach(function (str) {
+        if (str !== '') {
+          var move = _this.page.build_move();
+
+          move.parse(str);
+          moves.push(move.to_string());
+        }
+      });
+      this.moves = moves;
+      this.dialog = true;
+    }
+  }
+}
+</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
