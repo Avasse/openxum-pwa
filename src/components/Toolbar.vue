@@ -22,7 +22,7 @@
           <v-icon left>wifi_off</v-icon>
           Offline
       </v-btn>
-      <v-btn flat>
+      <v-btn flat to="/faq">
           <v-icon left>question_answer</v-icon>
           FAQ
       </v-btn>

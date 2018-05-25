@@ -6,6 +6,7 @@ import MyGames from '@/components/MyGames'
 import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import Profile from '@/components/Profile'
+import Faq from '@/components/Faq'
 
 import Create from '@/components/games/Create'
 import CreateGame from '@/components/games/CreateGame'
@@ -49,6 +50,11 @@ const router = new Router({
       path: '/signup',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/faq',
+      name: 'Faq',
+      component: Faq
     },
     {
       path: '/profile',
