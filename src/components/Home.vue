@@ -10,8 +10,8 @@
             class="white--text"
           >
             <img :src="require('../assets/openxum.png')" alt="Openxum" height="200">
-            <h1 class="white--text mb-2 display-1 text-xs-center">Plateforme de jeux abstraits</h1>
-            <div class="subheading mb-3 text-xs-center">Par OpenXum</div>
+            <h1 class="white--text mb-2 display-1 text-xs-center">Abstract Strategy Game Platform</h1>
+            <div class="subheading mb-3 text-xs-center">Powered by OpenXum</div>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
