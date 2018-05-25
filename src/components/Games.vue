@@ -5,13 +5,13 @@
               <v-card class="card mr-3 mb-3">
                   <v-card-media :src="game.logo" height="200px"></v-card-media>
                   <v-card-actions d-flex>
-                      <v-btn :to="`/create/${game.gametype}`" flat color="primary" v-if="game.gametype">
+                      <v-btn :to="`/create/${game.gametype}`" flat color="primary" :disabled="!game.gametype">
                           Jouer
                           <v-icon color="primary" right>
                               play_arrow
                           </v-icon>
                       </v-btn>
-                      <v-btn :to="games[i].rules" flat color="primary">
+                      <v-btn :to="game.rules" flat color="primary">
                           Régles
                           <v-icon color="primary" right>
                             library_books
