@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import loginService from './loginService.js';
+  import accountService from '../services/AccountService.js';
 
   export default {
     name: 'Login',
@@ -55,7 +55,7 @@
         const authUser = {};
         var app = this;
 
-        loginService.login(this.loginDetails)
+        accountService.login(this.loginDetails)
           .then(function (res) {
             if (res.status === 200) {
               authUser.data = res.data.user;
