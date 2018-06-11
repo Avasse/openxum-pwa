@@ -10,7 +10,7 @@ import Faq from '@/components/Faq'
 
 import Create from '@/components/games/Create'
 import CreateGame from '@/components/games/CreateGame'
-import PlayDvonn from '@/components/games/dvonn/PlayDvonn'
+import PlayGame from '@/components/games/PlayGame'
 import RulesDvonn from '@/components/games/dvonn/RulesDvonn'
 import RulesGipf from '@/components/games/gipf/RulesGipf'
 import RulesInvers from '@/components/games/invers/RulesInvers'
@@ -75,8 +75,8 @@ const router = new Router({
     },
     {
       path: '/games/play/dvonn/:type/:color/:mode/:idGame',
-      name: 'PlayDvonn',
-      component: PlayDvonn,
+      name: 'PlayGame',
+      component: PlayGame,
       meta: {requiresAuth: true, playerAuth: true}
     },
     {
