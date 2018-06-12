@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-12">
             <v-toolbar dark color="primary">
-              <v-toolbar-title>Sign up</v-toolbar-title>
+              <v-toolbar-title>{{ $t('SIGNUP.SIGNUP')}}</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-form>
@@ -15,7 +15,7 @@
                   required
                   prepend-icon="person"
                   name="login"
-                  label="Username"
+                  :label="$t('SIGNUP.USERNAME')"
                   type="text"></v-text-field>
                 <v-text-field
                   v-model="signUpDetails.password"
@@ -23,7 +23,7 @@
                   id="password"
                   prepend-icon="lock"
                   name="password"
-                  label="Password"
+                  :label="$t('SIGNUP.PASSWORD')"
                   type="password"></v-text-field>
                 <v-text-field
                   v-model="signUpDetails.email"
@@ -31,13 +31,13 @@
                   id="email"
                   prepend-icon="email"
                   name="email"
-                  label="Email"
+                  :label="$t('SIGNUP.EMAIL')"
                   type="email"></v-text-field>
               </v-form>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="signUpUser" value="signup" color="primary">Register</v-btn>
+              <v-btn @click="signUpUser" value="signup" color="primary">{{ $t('SIGNUP.REGISTER') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>

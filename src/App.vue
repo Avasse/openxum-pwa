@@ -3,9 +3,9 @@
     <toolbar
       :light="light"
       :languages="languages"
-      @logout="logout()"
-      @switchLang="switchLang()"
-      @switchLight="switchLight()"/>
+      @logout="logout"
+      @switchLang="switchLang"
+      @switchLight="switchLight"/>
     <div class="main">
       <router-view></router-view>
     </div>
@@ -17,6 +17,7 @@
 
 <script>
   import Toolbar from './components/Toolbar.vue'
+  import i18n from './i18n'
 
   export default {
     data () {
@@ -24,13 +25,13 @@
         title: 'OpenXum',
         light: true,
         languages: {
-          en: {
-            label: 'English',
-            src: require('./assets/flags/en.png')
-          },
           fr: {
-            label: 'French',
+            label: 'TRADUCTION.FRENCH',
             src: require('./assets/flags/fr.png')
+          },
+          en: {
+            label: 'TRADUCTION.ENGLISH',
+            src: require('./assets/flags/en.png')
           }
         }
       }
@@ -39,17 +40,12 @@
       Toolbar
     },
     created () {
-      if (localStorage.getItem('light') === null) {
-        this.light = true;
-        localStorage.setItem('light', true);
-      } else {
-        this.light = localStorage.getItem('light') === 'true' ? true : false
-      }
+      this.initLight();
+      this.initLang();
     },
     methods: {
       logout () {
         var app = this;
-
         localStorage.removeItem("openXumUser");
         app.$router.push({ name: 'Home'});
         app.$store.state.isLoggedIn = false;
@@ -60,7 +56,33 @@
         localStorage.setItem('light', this.light);
       },
 
-      switchLang () {}
+      initLight () {
+        if (localStorage.getItem('light') === null) {
+          this.light = true;
+          localStorage.setItem('light', 'true');
+        } else {
+          this.light = localStorage.getItem('light') === 'true';
+        }
+      },
+
+      switchLang (id) {
+        if (id === 'fr') {
+          i18n.locale = 'fr';
+          localStorage.setItem('lang', 'fr');
+        }
+        else if (id === 'en') {
+          i18n.locale = 'en';
+          localStorage.setItem('lang', 'en');
+        }
+      },
+
+      initLang () {
+        if (localStorage.getItem('lang') === null) {
+          localStorage.setItem('lang', 'fr');
+        } else {
+          i18n.lang = localStorage.getItem('lang');
+        }
+      },
     },
     computed: {
       isHomePage () {

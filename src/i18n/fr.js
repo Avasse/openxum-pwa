@@ -1,111 +1,67 @@
 export default {
-  ERROR_TITLE      : 'Erreur',
-  MAINTENANCE_TITLE: 'Maintenance',
-  NOT_FOUND_TITLE  : '404 Non trouvé',
-
-  reference    : 'référence',
-  current_day  : 'jour',
-  day_reference: 'jour @:reference',
-
-  loading_txt: 'CHARGEMENT',
-
-  'date-picker' : 'Date / Période',
-  sites         : 'Sites',
-  themes        : 'Thèmes',
-  notifications : 'Notifications',
-  filter        : 'Filtrer',
-  'no-site'     : 'Aucun site sélectionné',
-  date          : 'Date',
-  period        : 'Période',
-  weeks         : 'Semaines',
-  'day-vs-day'  : 'Jour à Jour (J-364)',
-  'year-vs-year': 'Année à année (N-1)',
-  'custom-date' : 'Date libre',
-  by            : 'Par',
-  ean           : 'EAN',
-  label         : 'Libellé',
-  market        : 'Marché',
-  need          : 'Besoin',
-
-  notifs: {
-    receive_at_time: "reçu aujourd'hui à {dtstring}",
-    receive_at_date: 'reçu le {dtstring}',
-    to_read        : '<strong>{toread}</strong> notification(s) à lire sur {read}',
-    nothing_to_read: 'Aucune notification à lire sur {read}'
+  MENU: {
+    HOME: 'Accueil',
+    GAMES: 'Jeux',
+    RANKING: 'Tournois',
+    OFFLINE: 'Offline',
+    FAQ: 'FAQ',
+    PROFILE: 'Profil',
+    SIGNUP: 'Inscription'
   },
-
-  datepicker: {
-    currentDate  : 'Date sélectionnée',
-    referenceDate: 'Date de comparaison'
+  TRADUCTION: {
+    ENGLISH: 'English',
+    FRENCH: 'Français'
   },
-
-  context: {
-    context      : 'Contexte',
-    'date-picker': 'Choisir une date ou une période',
-    sites        : 'Sites',
-    themes       : 'Choisir un thème',
-    summary      : '',
-    notifications: 'Notifications'
+  GAMES: {
+    PLAY: 'Jouer',
+    RULES: 'Règles'
   },
-
-  app_headers: {
-    summary: 'Synthèse',
-    context: ''
+  CREATEGAME: {
+    CREATEGAME: 'Créer une partie',
+    NAME: 'Nom',
+    COLOR: 'Couleur',
+    MODE: 'Mode',
+    TYPE: 'Type',
+    CREATE: 'Créer'
   },
-
-  summary: {
-    title_mainStats     : 'Chiffres clés',
-    title_results       : 'Résultats',
-    title_fluidity      : 'Fluidité - Attente',
-    title_loyalty       : 'Fidélisation',
-    title_efficiency    : 'Efficacité',
-    title_unreadables   : 'Illisibles',
-    title_unknowns      : 'Inconnus',
-    title_services      : 'Services',
-    title_events        : 'Événements',
-    subtitle_results    : {
-      sales    : 'CA € Brut (hors essence)',
-      customers: 'Clients',
-      articles : 'Articles'
-    },
-    subtitle_loyalty    : {
-      card_holders: 'Porteurs de cartes'
-    },
-    subtitle_unreadables: {
-      sales      : 'CA €',
-      unreadables: 'Nb d\'illisibles',
-      customers  : 'Nb de Clients concernés',
-      wastedTime : 'Temps perdu (h)'
-    },
-    subtitle_unknowns   : {
-      sales    : 'CA €',
-      unknowns : 'Nb d\'inconnus',
-      customers: 'Nb de Clients concernés'
-    },
-    labels              : {
-      totalGrossSales              : 'CA € Brut (hors essence)',
-      lineFluidity                 : 'Fluidité ligne',
-      planningEfficiency           : 'Efficacité Planif',
-      reliability                  : 'Fiabilité CA',
-      loyalty                      : 'Fidélisation',
-      cashback                     : 'Cagnotage (Nb clients)',
-      voucher                      : 'Bon de réduction',
-      planning                     : 'Planification',
-      hostesses                    : 'Hôtesses de caisse',
-      articles                     : 'Articles',
-      payment                      : 'Réglements',
-      openingHours                 : 'Heures ouvrées KSL',
-      customersPerHour             : 'Clients / H. ouvrées',
-      articlesPerHour              : 'Articles / H. ouvrées',
-      articlesPerHourCompanyAverage: 'Articles / H. ouvrées moyenne société',
-      snacking                     : 'Sandwicherie',
-      stamp                        : 'La Poste',
-      giftCard                     : 'Carte cadeaux',
-      spectacle                    : 'Billetterie Spectacles',
-      eventsNumber                 : 'Nombre d\'événements',
-      meeting                      : 'Meeting',
-      culture                      : 'Billetterie Culture',
-      leisure                      : 'Billetterie Loisir'
-    }
+  PROFILE: {
+    PROFILE: 'Profil',
+    USERNAME: 'Nom d\'utilisateur',
+    PASSWORD: 'Mot de passe',
+    EMAIL: 'Email',
+    UPDATE: 'Mettre à jour'
+  },
+  SIGNUP: {
+    SIGNUP: 'Créer un compte',
+    USERNAME: 'Nom d\'utilisateur',
+    PASSWORD: 'Mot de passe',
+    EMAIL: 'Email',
+    REGISTER: 'S\'enregistrer'
+  },
+  LOGIN: {
+    LOGIN: 'Connexion',
+    USERNAME: 'Nom d\'utilisateur',
+    PASSWORD: 'Mot de passe',
+  },
+  HOME: {
+    HEADER: 'Plateforme De Jeux Abstraits',
+    POWERED: 'Par Openxum',
+    DISCOVER: 'Découvrir',
+    SECTIONHEADER: 'Bienvenue dans le monde des jeux abstraits !',
+    JOIN: 'Rejoignez la communauté OpenXum',
+    DIVLEFTTITLE: 'Une plateforme internationnale',
+    DIVMIDTITLE: 'Intelligence Artificielle',
+    DIVRIGHTTITLE: 'Tournois',
+    DIVLEFTTEXT: 'Rejoignez la plus grande communauté de jeux de sociétés abstraits au monde. Aucun téléchargement nécéssaire, jouez directement depuis votre navigateur. Avez vos amis et des milliers de joueurs à travers le monde. Prenez les temps de jouer à votre rythme, seul ou avec des amis. Jeux instantané, Pas d\'attente, Aucun plugin nécéssaire.',
+    DIVMIDTEXT: 'Nos jeux ont étés précieusement selectionnés, La plupart d\'entre eux ont gagnés des prix prestigieux. Publiés initiallement en France, Allemagne, USA,... Ils sont tous très simple à aprendre, rapides et amusants. Nous offrons une Intelligence Artificielle poussée. Certains de nos robots sont simples à battre, d\'autres seront de glorieux adversaires.',
+    DIVRIGHTTEXT: 'Débutants ou Pro ? Découvrez et maitrisez. Apprenez de nouveaux jeux ou augmentez votre dextérité à vos jeux préfèrés, tout cela à votre rythme. Besoin de nouveaux challenges ? Rejoignez le tournois et découvrez de nouveaux adversaires ! Les meilleurs joueurs grimprent au classement. Essayez et rejoignez nous ! Jeux abstraits d\'hier et d\'aujourd\'hui.',
+    SECTIONBOTHEADER: 'Les meilleurs jeux abstraits d\'hier et d\'aujourd\'hui, adaptés aux jeux en ligne.',
+    SECTIONBOTTEXT: 'Rejoignez la communauté OpenXum',
+    GETSTARTED: 'Commencez'
+  },
+  GAME: {
+    READY: "Prêt",
+    REPLAY: "Retour",
+    MOVELIST: "Mouvements"
   }
 }

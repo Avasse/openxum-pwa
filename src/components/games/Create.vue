@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-12">
             <v-toolbar dark color="primary">
-              <v-toolbar-title>Create Game</v-toolbar-title>
+              <v-toolbar-title>{{ $t('CREATEGAME.CREATEGAME') }}</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-form>
@@ -15,10 +15,10 @@
                   required
                   prepend-icon="videogame_asset"
                   name="name"
-                  label="Game Name"
+                  :label="$t('CREATEGAME.NAME')"
                   type="text"/>
                 <v-radio-group
-                  label="Color*"
+                  :label="$t('CREATEGAME.COLOR') + '*'"
                   v-model="color"
                   row>
                   <v-radio
@@ -28,7 +28,7 @@
                     :value="c.key"/>
                 </v-radio-group>
                 <v-radio-group
-                  label="Mode*"
+                  :label="$t('CREATEGAME.MODE') + '*'"
                   v-model="mode"
                   row>
                   <v-radio
@@ -38,7 +38,7 @@
                     :value="m.key"/>
                 </v-radio-group>
                 <v-radio-group
-                  label="Type*"
+                  :label="$t('CREATEGAME.TYPE') + '*'"
                   v-model="type"
                   row>
                   <v-radio
@@ -51,7 +51,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="createGame" value="createGame" color="primary">Create</v-btn>
+              <v-btn @click="createGame" value="createGame" color="primary">{{ $t('CREATEGAME.CREATE') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
