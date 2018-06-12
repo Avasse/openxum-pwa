@@ -8,31 +8,31 @@
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat to="/home">
           <v-icon left>home</v-icon>
-          Home
+          {{ $t('MENU.HOME') }}
       </v-btn>
       <v-btn flat to="/games">
           <v-icon left>videogame_asset</v-icon>
-          Games
+          {{ $t('MENU.GAMES') }}
       </v-btn>
       <v-btn flat v-if="checkLogin">
           <v-icon left>insert_chart</v-icon>
-          Ranking
+          {{ $t('MENU.RANKING') }}
       </v-btn>
       <v-btn flat v-if="checkLogin">
           <v-icon left>wifi_off</v-icon>
-          Offline
+          {{ $t('MENU.OFFLINE') }}
       </v-btn>
       <v-btn flat to="/faq">
           <v-icon left>question_answer</v-icon>
-          FAQ
+          {{ $t('MENU.FAQ') }}
       </v-btn>
       <v-btn flat to="/profile" v-if="checkLogin">
           <v-icon left>account_box</v-icon>
-          Profile
+          {{ $t('MENU.PROFILE') }}
       </v-btn>
       <v-btn flat to="/signup" v-if="!checkLogin">
           <v-icon left>person_add</v-icon>
-          Sign up
+          {{ $t('MENU.SIGNUP') }}
       </v-btn>
     </v-toolbar-items>
     <v-spacer/>
@@ -42,8 +42,8 @@
         <v-icon left>fas fa-language</v-icon>
         </v-btn>
         <v-list>
-        <v-list-tile v-for="(lang, i) in languages" :key="i" @click="$emit('switchLang', i)">
-            <v-list-tile-title>{{ lang.label }}</v-list-tile-title>
+        <v-list-tile v-for="(lang, id) in languages" :key="id" @click="$emit('switchLang', id)">
+            <v-list-tile-title>{{ $t(lang.label) }}</v-list-tile-title>
         </v-list-tile>
         </v-list>
       </v-menu>

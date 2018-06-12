@@ -6,13 +6,13 @@
                   <v-card-media :src="game.logo" height="200px"></v-card-media>
                   <v-card-actions d-flex>
                       <v-btn :to="`/create/${game.gametype}`" flat color="primary" :disabled="!game.gametype">
-                          Jouer
+                          {{ $t('GAMES.PLAY') }}
                           <v-icon color="primary" right>
                               play_arrow
                           </v-icon>
                       </v-btn>
                       <v-btn :to="game.rules" flat color="primary">
-                          Régles
+                          {{ $t('GAMES.RULES') }}
                           <v-icon color="primary" right>
                             library_books
                           </v-icon>

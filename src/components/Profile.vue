@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-12">
             <v-toolbar dark color="primary">
-              <v-toolbar-title>Profile</v-toolbar-title>
+              <v-toolbar-title>{{ $t('PROFILE.PROFILE') }}</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-form>
@@ -15,7 +15,7 @@
                   required
                   prepend-icon="person"
                   name="login"
-                  label="Username"
+                  :label="$t('PROFILE.USERNAME')"
                   type="text"></v-text-field>
                 <v-text-field
                   v-model="userDetails.password"
@@ -23,7 +23,7 @@
                   id="password"
                   prepend-icon="lock"
                   name="password"
-                  label="Password"
+                  :label="$t('PROFILE.PASSWORD')"
                   type="password"></v-text-field>
                 <v-text-field
                   v-model="userDetails.email"
@@ -31,13 +31,13 @@
                   id="email"
                   prepend-icon="email"
                   name="email"
-                  label="Email"
+                  :label="$t('PROFILE.EMAIL')"
                   type="email"></v-text-field>
               </v-form>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="updateUser" value="updateUser" color="primary">Update</v-btn>
+              <v-btn @click="updateUser" value="updateUser" color="primary">{{ $t('PROFILE.UPDATE') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
