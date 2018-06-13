@@ -2,9 +2,9 @@
     <v-container fluid>
         <v-layout row text-xs-center>
             <v-flex xl4 lg6 md8 sm10 xs12 offset-xl4 offset-lg3 offset-md2 offset-sm1 offset-xs0>
-                <v-btn color="success" light id="status">Ready</v-btn>
-                <v-btn color="warning" light id="replay">Replay</v-btn>
-                <v-btn color="error" light id="list" v-on:click.native="displayMoveList()">Move list</v-btn>
+                <v-btn color="success" light id="status">{{ $t('GAME.READY') }}</v-btn>
+                <v-btn color="warning" light id="replay">{{ $t('GAME.REPLAY') }}</v-btn>
+                <v-btn color="error" light id="list" v-on:click.native="displayMoveList()">{{ $t('GAME.MOVELIST') }}</v-btn>
                 <div id="boardDiv">
                     <canvas id="board"/>
                 </div>
@@ -13,7 +13,7 @@
         <v-layout row justify-center>
             <v-dialog v-model="dialog" persistent>
                 <v-card>
-                    <v-card-title class="headline">Move list</v-card-title>
+                    <v-card-title class="headline">{{ $t('GAME.MOVELIST') }}</v-card-title>
                     <v-card-text id="moveListBody">
                         <ol>
                             <li v-for="move in moves">{{move}}</li>
