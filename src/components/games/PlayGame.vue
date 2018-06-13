@@ -5,7 +5,9 @@
                 <v-btn color="success" light id="status">Ready</v-btn>
                 <v-btn color="warning" light id="replay">Replay</v-btn>
                 <v-btn color="error" light id="list" v-on:click.native="displayMoveList()">Move list</v-btn>
-                <div class="container" id="main"></div>
+                <div id="boardDiv">
+                    <canvas id="board"/>
+                </div>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>
@@ -29,7 +31,7 @@
 
 <script>
 
-  import { OpenXum } from "/node_modules/openxum-browser/index.mjs";
+  import OpenXum from './openxum/index'
 
   export default {
     data () {
@@ -40,14 +42,8 @@
       }
     },
     mounted() {
-      var color = this.$route.params.color === 'black' ? 0 : 1;
-      var opponent_color = this.$route.params.color === 'black' ? 1 : 0;
-      var mode = this.$route.params.mode === 'regular' ? 0 : 1;
-      const status = JSON.parse(window.localStorage.getItem('openXumUser'));
-
-      // TODO: owner_id = user_id ; opponent_id = '' ; replay = 0
-      this.page = new OpenXum.GamePage(OpenXum.Dvonn, 'dvonn', OpenXum.Dvonn.Color.BLACK, OpenXum.Dvonn.Color.BLACK,
-     OpenXum.Dvonn.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Dvonn.GameType.STANDARD, '', '', '', false);
+      console.log('Route', this.$route)
+      this.launchGame()
     },
     methods: {
       displayMoveList() {
@@ -65,6 +61,36 @@
         });
         this.moves = moves;
         this.dialog = true;
+      },
+
+      launchGame() {
+        var color = this.$route.params.color === 'black' ? 0 : 1;
+        var opponent_color = this.$route.params.color === 'black' ? 1 : 0;
+        var mode = this.$route.params.mode === 'regular' ? 0 : 1;
+        const status = JSON.parse(window.localStorage.getItem('openXumUser'));
+
+        // TODO: owner_id = user_id ; opponent_id = '' ; replay = 0
+        if (this.$route.params.game === 'dvonn') {
+          this.page = new OpenXum.GamePage(OpenXum, OpenXum.Dvonn, 'dvonn', 0, color, opponent_color , OpenXum.GameType.LOCAL_AI, //<this.$route.params.type,
+            this.$route.params.idGame, mode, status.data.username, status.data.username, '', 0);
+        } else if (this.$route.params.game === 'invers') {
+          this.page = new OpenXum.GamePage(OpenXum, OpenXum.Invers, 'invers', OpenXum.Invers.Color.RED, OpenXum.Invers.Color.RED,
+            OpenXum.Invers.Color.YELLOW, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Invers.GameType.STANDARD, '', '', '', false);
+        } else if (this.$route.params.game === 'gipf') {
+          this.page = new OpenXum.GamePage(OpenXum, OpenXum.Gipf, 'gipf', OpenXum.Gipf.Color.BLACK, OpenXum.Gipf.Color.BLACK,
+            OpenXum.Gipf.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Gipf.GameType.STANDARD, '', '', '', false);
+        } else if (this.$route.params.game === 'paletto') {
+          this.page = new OpenXum.GamePage(OpenXum, OpenXum.Paletto, 'paletto', OpenXum.Paletto.Color.PLAYER_1, OpenXum.Paletto.Color.PLAYER_1,
+            OpenXum.Paletto.Color.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Paletto.GameType.STANDARD, '', '', '', false);
+        } else if (this.$route.params.game === 'kamisado') {
+          new OpenXum.GamePage(OpenXum, OpenXum.Kamisado, 'kamisado', OpenXum.Kamisado.Color.BLACK, OpenXum.Kamisado.Color.BLACK,
+            OpenXum.Kamisado.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Kamisado.GameType.SIMPLE, '', '', '', false);
+        } else if (this.$route.params.game === 'hnefatafl') {
+          new OpenXum.GamePage(OpenXum.Hnefatafl, 'hnefatafl', OpenXum.Hnefatafl.Color.BLACK, OpenXum.Hnefatafl.Color.BLACK,
+            OpenXum.Hnefatafl.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Hnefatafl.GameType.STANDARD, '', '', '', false);
+        } else {
+          this.$router.push({ name: 'Games'});
+        }
       }
     }
   }

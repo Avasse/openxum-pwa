@@ -1,3 +1,2 @@
-import OpenXum from "../../../../node_modules/openxum-browser/index.mjs";
-
+import OpenXum from "../../../../lib/openxum-browser/index.mjs";
 export default OpenXum;

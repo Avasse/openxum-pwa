@@ -74,7 +74,7 @@ const router = new Router({
       component: CreateGame
     },
     {
-      path: '/games/play/dvonn/:type/:color/:mode/:idGame',
+      path: '/games/play/:game/:type/:color/:mode/:idGame',
       name: 'PlayGame',
       component: PlayGame,
       meta: {requiresAuth: true, playerAuth: true}

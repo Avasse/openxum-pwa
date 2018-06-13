@@ -175,15 +175,30 @@
           default_type: 'ai'
         },
         gipf: {
-          color_keys: ['black', 'white'],
-          colors: ['Black', 'White'],
-          default_color: 'black',
-          mode_keys: ['basic', 'standard', 'tournament'],
-          modes: ['Basic', 'Standard', 'Tournament'],
-          default_mode: 'basic',
-          type_keys: ['gui', 'online', 'ai', 'offline'],
-          types: ['GUI', 'Online', 'AI', 'Offline'],
-          default_type: 'ai'
+          colors: {
+            init: 'black',
+            list: [
+              {key: 'black', value: 'Black'},
+              {key: 'white', value: 'White'}
+            ]
+          },
+          modes: {
+            init: 'basic',
+            list: [
+              {key: 'basic', value: 'Basic'},
+              {key: 'standard', value: 'Standard'},
+              {key: 'tournament', value: 'Tournament'}
+            ]
+          },
+          types: {
+            init: 'ai',
+            list: [
+              {key: 'gui', value: 'GUI'},
+              {key: 'online', value: 'Online'},
+              {key: 'ai', value: 'AI'},
+              {key: 'offline', value: 'Offline'}
+            ]
+          }
         },
         yinsh: {
           color_keys: ['black', 'white'],
@@ -197,26 +212,56 @@
           default_type: 'ai'
         },
         kamisado: {
-          color_keys: ['black', 'white'],
-          colors: ['Black', 'White'],
-          default_color: 'black',
-          mode_keys: ['simple', 'standard', 'long', 'marathon'],
-          modes: ['Simple', 'Standard', 'Long', 'Marathon'],
-          default_mode: 'simple',
-          type_keys: ['gui', 'online', 'ai', 'remote_ai', 'offline'],
-          types: ['GUI', 'Online', 'AI', 'Remote AI', 'Offline'],
-          default_type: 'ai'
+          colors: {
+            init: 'black',
+            list: [
+              {key: 'black', value: 'Black'},
+              {key: 'white', value: 'White'}
+            ]
+          },
+          modes: {
+            init: 'simple',
+            list: [
+              {key: 'simple', value: 'Simple'},
+              {key: 'standard', value: 'Standard'},
+              {key: 'long', value: 'Long'},
+              {key: 'marathon', value: 'Tournament'}
+            ]
+          },
+          types: {
+            init: 'ai',
+            list: [
+              {key: 'gui', value: 'GUI'},
+              {key: 'online', value: 'Online'},
+              {key: 'ai', value: 'AI'},
+              {key: 'offline', value: 'Offline'}
+            ]
+          }
         },
         invers: {
-          color_keys: ['red', 'yellow'],
-          colors: ['Red', 'Yellow'],
-          default_color: 'red',
-          mode_keys: ['standard'],
-          modes: ['Standard'],
-          default_mode: 'standard',
-          type_keys: ['gui', 'online', 'ai', 'remote_ai', 'offline'],
-          types: ['GUI', 'Online', 'AI', 'Remote AI', 'Offline'],
-          default_type: 'ai'
+          colors: {
+            init: 'red',
+            list: [
+              {key: 'red', value: 'Red'},
+              {key: 'yellow', value: 'Yellow'}
+            ]
+          },
+          modes: {
+            init: 'standard',
+            list: [
+              {key: 'standard', value: 'Standard'}
+            ]
+          },
+          types: {
+            init: 'ai',
+            list: [
+              {key: 'gui', value: 'GUI'},
+              {key: 'online', value: 'Online'},
+              {key: 'ai', value: 'AI'},
+              {key: 'remote_ai', value: 'Remote AI'},
+              {key: 'offline', value: 'Offline'}
+            ]
+          }
         },
         zertz: {
           color_keys: ['one', 'two'],
@@ -241,15 +286,27 @@
           default_type: 'ai'
         },
         paletto: {
-          color_keys: ['player_1', 'player_2'],
-          colors: ['Player 1', 'Player 2'],
-          default_color: 'player_1',
-          mode_keys: ['standard'],
-          modes: ['Standard'],
-          default_mode: 'standard',
-          type_keys: ['gui', 'online', 'ai'],
-          types: ['GUI', 'Online', 'AI'],
-          default_type: 'ai'
+          colors: {
+            init: 'player_1',
+            list: [
+              {key: 'player_1', value: 'Player 1'},
+              {key: 'player_2', value: 'Player 2'}
+            ]
+          },
+          modes: {
+            init: 'standard',
+            list: [
+              {key: 'standard', value: 'Standard'},
+            ]
+          },
+          types: {
+            init: 'ai',
+            list: [
+              {key: 'gui', value: 'GUI'},
+              {key: 'online', value: 'Online'},
+              {key: 'ai', value: 'AI'}
+            ]
+          }
         }
       };
 
