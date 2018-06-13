@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import * as OpenXum from '../openxum/OpenXum'
-import * as Dvonn from './js/Dvonn'
+
+import OpenXum from '../openxum/index'
+//import * as Dvonn from './js/Dvonn'
 
 export default {
   data () {
@@ -48,7 +49,7 @@ export default {
     const status = JSON.parse(window.localStorage.getItem('openXumUser'));
 
     // TODO: owner_id = user_id ; opponent_id = '' ; replay = 0
-    this.page = new OpenXum.GamePage(Dvonn, 'dvonn', 0, color, opponent_color , this.$route.params.type,
+    this.page = new OpenXum.GamePage(OpenXum, OpenXum.Dvonn, 'dvonn', 0, color, opponent_color , OpenXum.GameType.LOCAL_AI, //<this.$route.params.type,
       this.$route.params.idGame, mode, status.data.username, status.data.username, '', 0);
   },
   methods: {

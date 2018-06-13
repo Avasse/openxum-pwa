@@ -30,10 +30,10 @@
       return {
         games: [
           {name: 'Dvonn', logo: require('../assets/gameLogo/dvonn.jpg'), rules: '/games/rules/dvonn', gametype: 'dvonn'},
-          {name: 'Gipf', logo: require('../assets/gameLogo/gipf.jpg'), rules: '/games/rules/gipf'},
-          {name: 'Invers', logo: require('../assets/gameLogo/invers.jpg'), rules: '/games/rules/invers'},
-          {name: 'Kamisado', logo: require('../assets/gameLogo/kamisado.jpg'), rules: '/games/rules/kamisado'},
-          {name: 'Paletto', logo: require('../assets/gameLogo/paletto.jpg'), rules: '/games/rules/paletto'},
+          {name: 'Gipf', logo: require('../assets/gameLogo/gipf.jpg'), rules: '/games/rules/gipf', gametype: 'gipf'},
+          {name: 'Invers', logo: require('../assets/gameLogo/invers.jpg'), rules: '/games/rules/invers', gametype: 'invers' },
+          {name: 'Kamisado', logo: require('../assets/gameLogo/kamisado.jpg'), rules: '/games/rules/kamisado', gametype: 'kamisado'},
+          {name: 'Paletto', logo: require('../assets/gameLogo/paletto.jpg'), rules: '/games/rules/paletto', gametype: 'paletto'},
           {name: 'Pentago', logo: require('../assets/gameLogo/pentago.jpg'), rules: '/games/rules/pentago'},
           {name: 'Tzaar', logo: require('../assets/gameLogo/tzaar.jpg'), rules: '/games/rules/tzaar'},
           {name: 'Yinsh', logo: require('../assets/gameLogo/yinsh.jpg'), rules: '/games/rules/yinsh'},
